@@ -25,6 +25,10 @@ export class HelloController {
   async createGreeting(
     @Body() createGreetingDto: CreateGreetingDto,
   ): Promise<Greeting> {
-    return await this.greetingService.createGreeting(createGreetingDto.message);
+    const date = new Date().toISOString();
+    return await this.greetingService.createGreeting(
+      createGreetingDto.message,
+      date,
+    );
   }
 }

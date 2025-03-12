@@ -1,3 +1,6 @@
 export class Greeting {
-  constructor(public readonly message: string) {}
+  constructor(
+    public readonly message: string,
+    public readonly date: string,
+  ) {}
 }

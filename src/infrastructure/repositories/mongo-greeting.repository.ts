@@ -14,12 +14,15 @@ export class MongoGreetingRepository implements GreetingRepository {
 
   async getGreetings(): Promise<Greeting[]> {
     const docs = await this.greetingModel.find().exec();
-    return docs.map((doc) => new Greeting(doc.message));
+    return docs.map((doc) => new Greeting(doc.message, doc.date));
   }
 
   async createGreeting(greeting: Greeting): Promise<Greeting> {
-    const created = new this.greetingModel({ message: greeting.message });
+    const created = new this.greetingModel({
+      message: greeting.message,
+      date: greeting.date,
+    });
     const saved = await created.save();
-    return new Greeting(saved.message);
+    return new Greeting(saved.message, saved.date);
   }
 }

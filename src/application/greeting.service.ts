@@ -13,8 +13,8 @@ export class GreetingService {
     return await this.greetingRepository.getGreetings();
   }
 
-  async createGreeting(message: string): Promise<Greeting> {
-    const greeting = new Greeting(message);
+  async createGreeting(message: string, date: string): Promise<Greeting> {
+    const greeting = new Greeting(message, date);
     return await this.greetingRepository.createGreeting(greeting);
   }
 }
