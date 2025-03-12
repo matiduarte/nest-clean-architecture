@@ -8,7 +8,7 @@ import { Module } from '@nestjs/common';
 @Module({
   imports: [
     // Connect to MongoDB (adjust connection string as needed)
-    MongooseModule.forRoot('mongodb://localhost/nest'),
+    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
     // Register the Greeting model for injection
     MongooseModule.forFeature([{ name: 'Greeting', schema: GreetingSchema }]),
   ],
